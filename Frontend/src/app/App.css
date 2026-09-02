@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+/* @theme {
+  --font-serif: "Bodoni Moda", serif;
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-primary: #000000;
+  --color-secondary: #5D5F5B;
+  --color-muted: #8E8E8E;
+  --color-canvas: #FAF9F9;
+  --color-surface: #FFFFFF;
+  --color-border-subtle: #E8E6E3;
+  --color-border-focus: #000000;
+  --color-accent-ivory: #F5F4F0;
+} */
+
+body {
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #FAF9F9;
+  color: #1B1C1C;
+  overflow-x: hidden;
+}
+
+.font-editorial {
+  font-family: "Bodoni Moda", serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF9F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #D1D0CE;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #888888;
+}
+
+/* Floating label and clean underline input styling */
+.luxury-input-group {
+  position: relative;
+}
+
+.luxury-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #D5D3CF;
+  padding: 1rem 0 0.5rem 0;
+  font-size: 0.95rem;
+  color: #1B1C1C;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.luxury-input:focus {
+  border-bottom-color: #000000;
+  box-shadow: 0 1px 0 0 #000000;
+}
+
+.luxury-input::placeholder {
+  color: transparent;
+}
+
+.luxury-label {
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #7E7576;
+  pointer-events: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: left top;
+}
+
+.luxury-input:focus ~ .luxury-label,
+.luxury-input:not(:placeholder-shown) ~ .luxury-label {
+  top: -0.25rem;
+  font-size: 0.65rem;
+  color: #000000;
+  letter-spacing: 0.14em;
+}
