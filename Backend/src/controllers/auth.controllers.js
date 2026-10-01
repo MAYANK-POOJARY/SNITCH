@@ -23,7 +23,7 @@ async function sendTokenResponse(user, res, statusCode, message){
 }
 
 
-
+// function to register a user
 export async function registerUser(req, res){ 
 
     try{
@@ -39,7 +39,7 @@ export async function registerUser(req, res){
             })
         }
 
-        const user = (await userModel.create({email, password, contact, fullName, role: isSeller ? "seller": "buyer"}));
+        const user = await userModel.create({email, password, contact, fullName, role: isSeller ? "seller": "buyer"});
 
         await sendTokenResponse(user, res, 201, "User registered successfully")
 
@@ -52,7 +52,7 @@ export async function registerUser(req, res){
 }
 
 
-
+// function to logIn a user
 export async function loginUser(req, res){
 
     try{
@@ -82,4 +82,21 @@ export async function loginUser(req, res){
             message: "Server error"
         })
     }
+}
+
+// controller to get the current user details
+export async function getMe(req, res){
+    const user = req.user;
+
+    res.status(200).json({
+        message: "User successfully fetched",
+        success: true,
+        user:{
+            id: user._id,
+            email: user.email,
+            contact: user.contact,
+            fullname: user.fullname,
+            role: user.role
+        }
+    })
 }
