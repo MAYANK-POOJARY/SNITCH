@@ -8,7 +8,12 @@ if(!process.env.JWT_SECRET){
     throw new Error("JWT_SECRET is not defiend in the enivronment variables")
 }
 
+if(!process.env.IMAGE_KIT_KEY){
+    throw new Error("IMAGE_KIT_KEY is not defined in the environment variables")
+}
+
 export const config = {
      MONGO_URI : process.env.MONGO_URI,
-     JWT_SECRET : process.env.JWT_SECRET
+     JWT_SECRET : process.env.JWT_SECRET,
+     IMAGE_KIT_KEY : process.env.IMAGE_KIT_KEY
 }
